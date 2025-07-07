@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="card">
+  <h2>Confirme as Questões</h2>
+  <form method="post" action="{{ url_for('admin.save_generated') }}">
+    {% for q in generated_questions %}
+      <div class="card">
+        <textarea name="questions" rows="2">{{ q }}</textarea>
+      </div>
+    {% endfor %}
+    <button type="submit" class="btn-modern">Salvar no Banco</button>
+  </form>
+</div>
+{% endblock %}

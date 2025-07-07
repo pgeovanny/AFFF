@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="card">
+  <h2>Gerar Questões com IA</h2>
+  <form method="post">
+    <div class="form-grid">
+      <label>Tipo:</label>
+      <select name="tipo">
+        <option value="true_false">Certo/Errado</option>
+        <option value="multiple_choice">Múltipla Escolha</option>
+      </select>
+
+      <label>Quantidade:</label>
+      <input type="number" name="numero" value="5" min="1" max="20">
+
+      <label>Nível:</label>
+      <select name="nivel">
+        <option>Fácil</option>
+        <option>Médio</option>
+        <option>Difícil</option>
+      </select>
+
+      <label>Lei:</label>
+      <input type="text" name="lei" placeholder="Ex: 8.112/90">
+
+      <label>Conteúdo Base:</label>
+      <textarea name="tema" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn-modern">Gerar Questões</button>
+  </form>
+</div>
+{% endblock %}

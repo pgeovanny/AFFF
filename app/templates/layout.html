@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gabarite a Lei</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">Gabarite a Lei</div>
+    <nav class="main-nav">
+      <a href="/">Início</a>
+      {% if current_user.is_authenticated and current_user.role=='admin' %}
+        <a href="/admin/generate">Painel IA</a>
+      {% endif %}
+      {% if current_user.is_authenticated %}
+        <a href="/logout">Sair</a>
+      {% else %}
+        <a href="/login">Entrar</a>
+      {% endif %}
+    </nav>
+  </header>
+  <main class="site-main">
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="site-footer">
+    &copy; 2025 Gabarite a Lei. Todos os direitos reservados.
+  </footer>
+</body>
+</html>
