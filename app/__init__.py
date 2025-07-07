@@ -19,8 +19,8 @@ def create_app():
     mail.init_app(app)
     migrate.init_app(app, db)
 
-    # Se você tiver blueprints:
-    # from .routes import main as main_bp
-    # app.register_blueprint(main_bp)
+    @app.route('/')
+    def index():
+        return 'Bem-vindo ao Simulado SaaS!'
 
     return app
